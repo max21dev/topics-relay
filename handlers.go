@@ -38,11 +38,11 @@ func handleCreateGroup(w http.ResponseWriter, r *http.Request) {
 	binary.LittleEndian.PutUint64(id, uint64(time.Now().Unix()))
 	groupId := hex.EncodeToString(id[0:3])
 
-	log.Info().Str("id", groupId).Str("owner", pubkey).Msg("making group")
+	log.Info().Str("id", groupId).Str("owner", pubkey).Msg("making topic")
 
 	group, _ := state.Groups.Load(groupId)
 	if group != nil {
-		http.Error(w, "group already exists", 403)
+		http.Error(w, "Topic already exists", 403)
 		return
 	}
 
@@ -83,7 +83,7 @@ func handleCreateGroup(w http.ResponseWriter, r *http.Request) {
 
 	for _, evt := range foundingEvents {
 		if err := evt.Sign(s.RelayPrivkey); err != nil {
-			log.Error().Err(err).Msg("error signing group creation event")
+			log.Error().Err(err).Msg("error signing topic creation event")
 			http.Error(w, "error signing forum topic creation event: "+err.Error(), 500)
 			return
 		}
