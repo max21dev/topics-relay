@@ -14,7 +14,7 @@ var internalCallContextKey = struct{}{}
 
 func preventGroupCreation(ctx context.Context, event *nostr.Event) (reject bool, msg string) {
 	if event.Kind == 9007 && ctx.Value(internalCallContextKey) == nil {
-		return true, "to create forums topic open https://" + s.Domain + " in your web browser"
+		return true, "to create topics topic open https://" + s.Domain + " in your web browser"
 	}
 	return false, ""
 }

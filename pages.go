@@ -21,7 +21,7 @@ func homepageHTML() HTMLComponent {
 			Script("").Src("https://cdn.tailwindcss.com"),
 		),
 		Body(
-			H1("Create Forums Topic").Class("text-xl mb-2"),
+			H1("Create Topic").Class("text-xl mb-2"),
 			Form(
 				Label("Topic owner:").For("npub").Class("mr-1 mt-4 block"),
 				Input("").Id("npub").Placeholder("npub1...").Name("pubkey").Class("w-96 px-4 py-2 outline-0 bg-stone-100"),
