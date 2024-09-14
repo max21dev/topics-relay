@@ -1,4 +1,4 @@
-module github.com/max21dev/groups-relay
+module github.com/max21dev/topics-relay
 
 go 1.23.0
 
